@@ -15,6 +15,7 @@ class DonationsController < ApplicationController
   # GET /donations/new
   def new
     @donation = Donation.new
+    @project = Project.find(params[:project_id])
   end
 
   # GET /donations/1/edit
@@ -25,6 +26,9 @@ class DonationsController < ApplicationController
   # POST /donations.json
   def create
     @donation = Donation.new(donation_params)
+    @donation.user_id = current_user.id
+    @project = Project.find(params[:project_id])
+    @donation.project_id = @project.id
 
     respond_to do |format|
       if @donation.save

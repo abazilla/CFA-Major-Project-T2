@@ -1,5 +1,9 @@
-<h1>New Donation</h1>
+<div class="container">
+  <h1>New Donation</h1>
+  <p>Project: <%= @project.title %></p>
+  <p>Current Funded Amount: $<%= @project.funded_amount %> / $<%= @project.request_amount %></p>
+  <h2>Donate!</h2>
+  <%= render 'form', donation: @donation %>
 
-<%= render 'form', donation: @donation %>
-
-<%= link_to 'Back', donations_path %>
+  <%= link_to 'Back', projects_path %>
+</div>

@@ -27,8 +27,8 @@ class DonationsController < ApplicationController
   def create
     @donation = Donation.new(donation_params)
     @donation.user_id = current_user.id
-    @project = Project.find(params[:project_id])
     @donation.project_id = @project.id
+    @project = Project.find(params[:project_id])
 
     respond_to do |format|
       if @donation.save
@@ -74,5 +74,9 @@ class DonationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def donation_params
       params.require(:donation).permit(:user_id, :project_id, :amount)
+    end
+
+    def stripe_params
+      params.permit :stripeEmail, :stripeToken
     end
 end

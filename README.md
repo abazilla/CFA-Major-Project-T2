@@ -1,24 +1,39 @@
-# README
+# Fund it forward
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## CFA Fast Track Term 2 Major Project
 
-Things you may want to cover:
+Fund it forward brings together crowdsourcing donations for social causes and the idea of "paying it forward".
 
-* Ruby version
+Requests are posted in the form of "projects", and are funded by people looking to donate.
 
-* System dependencies
+Once projects are fully funded, 10% of the funds go towards another project of the requester's choice.
 
-* Configuration
+It turns the act of passively receiving donations into an active act of giving back and feeding back into the community and the causes which you support.
 
-* Database creation
+It allows people who donate to see not only the projects they have funded, but all the other projects they have indirectly helped.
 
-* Database initialization
+## Installation
 
-* How to run the test suite
+Clone the project:
 
-* Services (job queues, cache servers, search engines, etc.)
+git clone https://github.com/nickwu78/CFA-Fund-It-Forward.git
 
-* Deployment instructions
+change into the project directory, and install the dependencies:
 
-* ...
+bundle install
+
+Run the app:
+
+rails s
+
+and access it through your browser:
+
+http://localhost:3000
+
+## Design Process
+
+## Tech Stack
+
+## Video
+
+## Link

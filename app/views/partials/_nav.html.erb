@@ -14,13 +14,16 @@
           <a class="nav-link" href="#">Link</a>
         </li>
       </ul>
+      <ul class="navbar-nav">
         <% if user_signed_in? %>
-            <%= link_to "Profile", edit_user_registration_path, class: 'nav-link' %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger my-2 my-sm-0' %>
+          <%= link_to "Post A Project", new_project_path, class: 'btn btn-outline-primary btn-margin-right'%>
+          <%= link_to "Profile", edit_user_registration_path, class: 'btn btn-outline-primary btn-margin-right' %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger my-2 my-sm-0' %>
         <% else %>
-            <%= link_to "Sign in", new_user_session_path, class: 'btn btn-outline-success my-2 my-sm-0' %>
-            <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-outline-success my-2 my-sm-0' %>
+          <%= link_to "Sign in", new_user_session_path, class: 'btn btn-outline-success my-2 my-sm-0 btn-margin-right' %>
+          <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-outline-success my-2 my-sm-0' %>
         <% end %>
+      </ul>
     </div>
   </div>
 </nav>

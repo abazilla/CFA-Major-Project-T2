@@ -28,7 +28,7 @@
 
   <p>
     <strong>Total donations:</strong>
-    <%= @profile.total_donations %>
+    <%= @profile.user.donations.sum(:amount) %>
   </p>
 
   <%= link_to 'Edit', edit_profile_path(@profile) %> |

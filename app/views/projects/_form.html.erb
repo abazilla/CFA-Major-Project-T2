@@ -11,32 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :pitch %>
-    <%= f.text_area :pitch %>
+    <%= f.text_area :pitch, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
+    <%= f.label :city %>
+    <%= f.text_field :city, class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :country %>
+    <%= f.text_field :city, class:'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :request_amount %>
     <%= f.number_field :request_amount %>
   </div>
 
-  <div class="field">
-    <%= f.label :funded_amount %>
-    <%= f.number_field :funded_amount %>
-  </div>
-
-  <div class="field">
-    <%= f.label :funded %>
-    <%= f.check_box :funded %>
+  <div class="form-group">
+  <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Project", class: 'btn btn-primary' %>
   </div>
 <% end %>

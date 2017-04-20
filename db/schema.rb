@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420003128) do
+ActiveRecord::Schema.define(version: 20170420044800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170420003128) do
     t.integer  "total_donations"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "picture"
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
@@ -49,12 +50,12 @@ ActiveRecord::Schema.define(version: 20170420003128) do
     t.string   "title"
     t.text     "pitch"
     t.integer  "request_amount"
-    t.integer  "funded_amount"
-    t.boolean  "funded"
+    t.integer  "funded_amount",       default: 0
+    t.boolean  "funded",              default: false
     t.integer  "user_id"
     t.integer  "next_project_funded"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "city"
     t.string   "country"
     t.string   "picture"

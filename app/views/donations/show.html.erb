@@ -1,19 +1,9 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @donation.user %>
-</p>
+<h4>
+  <%= @donation.user.email %> donated <%= number_to_currency(@donation.amount) %> to project "<%= @donation.project.title %>"
+</h4>
 
-<p>
-  <strong>Project:</strong>
-  <%= @donation.project %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @donation.amount %>
-</p>
-
-<%= link_to 'Edit', edit_donation_path(@donation) %> |
-<%= link_to 'Back', donations_path %>
+<%= link_to 'Back', projects_path %>
+</div>

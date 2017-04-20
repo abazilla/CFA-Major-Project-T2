@@ -15,6 +15,7 @@ class DonationsController < ApplicationController
   # GET /donations/new
   def new
     @donation = Donation.new
+    @project = Project.find(params[:project_id])
   end
 
   # GET /donations/1/edit
@@ -25,11 +26,30 @@ class DonationsController < ApplicationController
   # POST /donations.json
   def create
     @donation = Donation.new(donation_params)
+    @donation.user_id = current_user.id
+    @project = Project.find(params[:project_id])
+    @donation.project_id = @project.id
+    @amount = (@donation.amount) * 100
+
+    customer = Stripe::Customer.create(
+      :email => params[:stripeEmail],
+      :source  => params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
+      :customer    => customer,
+      :amount      => @amount,
+      :description => 'Rails Stripe customer',
+      :currency    => 'usd'
+    )
 
     respond_to do |format|
       if @donation.save
-        format.html { redirect_to @donation, notice: 'Donation was successfully created.' }
-        format.json { render :show, status: :created, location: @donation }
+        # @donation.update_project_funded_amount
+        @project.funded_amount += @donation.amount
+        @project.save
+        format.html { redirect_to [@project, @donation], notice: 'Donation was successfully created.' }
+        format.json { render :show, status: :created, location: [@project, @donation] }
       else
         format.html { render :new }
         format.json { render json: @donation.errors, status: :unprocessable_entity }

@@ -30,6 +30,8 @@
     <%= @project.user %>
   </p>
 
+  <%= image_tag @project.picture.url if @project.picture? %>
+
   <p>
     <strong>Next project funded:</strong>
     <%= @project.next_project_funded %>

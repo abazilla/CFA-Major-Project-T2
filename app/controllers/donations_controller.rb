@@ -32,6 +32,8 @@ class DonationsController < ApplicationController
 
     respond_to do |format|
       if @donation.save
+        @project.funded_amount += @donation.amount
+        @project.save
         format.html { redirect_to [@project, @donation], notice: 'Donation was successfully created.' }
         format.json { render :show, status: :created, location: [@project, @donation] }
       else

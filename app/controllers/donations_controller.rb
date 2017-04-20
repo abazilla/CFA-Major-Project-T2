@@ -15,6 +15,7 @@ class DonationsController < ApplicationController
   # GET /donations/new
   def new
     @donation = Donation.new
+    @project = Project.find(params[:project_id])
   end
 
   # GET /donations/1/edit
@@ -25,11 +26,14 @@ class DonationsController < ApplicationController
   # POST /donations.json
   def create
     @donation = Donation.new(donation_params)
+    @donation.user_id = current_user.id
+    @project = Project.find(params[:project_id])
+    @donation.project_id = @project.id
 
     respond_to do |format|
       if @donation.save
-        format.html { redirect_to @donation, notice: 'Donation was successfully created.' }
-        format.json { render :show, status: :created, location: @donation }
+        format.html { redirect_to [@project, @donation], notice: 'Donation was successfully created.' }
+        format.json { render :show, status: :created, location: [@project, @donation] }
       else
         format.html { render :new }
         format.json { render json: @donation.errors, status: :unprocessable_entity }

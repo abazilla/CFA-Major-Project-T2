@@ -19,4 +19,9 @@
   <div class="actions">
     <%= f.submit "Donate", class:'btn btn-primary'%>
   </div>
+  
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-description="Donation for: <%= @project.title %>"
+        data-locale="auto"></script>
 <% end %>

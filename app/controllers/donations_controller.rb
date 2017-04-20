@@ -29,9 +29,23 @@ class DonationsController < ApplicationController
     @donation.user_id = current_user.id
     @project = Project.find(params[:project_id])
     @donation.project_id = @project.id
+    @amount = (@donation.amount) * 100
+
+    customer = Stripe::Customer.create(
+      :email => params[:stripeEmail],
+      :source  => params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
+      :customer    => customer,
+      :amount      => @amount,
+      :description => 'Rails Stripe customer',
+      :currency    => 'usd'
+    )
 
     respond_to do |format|
       if @donation.save
+        # @donation.update_project_funded_amount
         @project.funded_amount += @donation.amount
         @project.save
         format.html { redirect_to [@project, @donation], notice: 'Donation was successfully created.' }

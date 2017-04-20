@@ -30,6 +30,7 @@ class DonationsController < ApplicationController
     @project = Project.find(params[:project_id])
     @donation.project_id = @project.id
     @amount = (@donation.amount) * 100
+    @profile = @donation.user.profile
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
@@ -46,8 +47,9 @@ class DonationsController < ApplicationController
     respond_to do |format|
       if @donation.save
         # @donation.update_project_funded_amount
-        @project.funded_amount += @donation.amount
-        @project.save
+        # @project.funded_amount += @donation.amount
+        @project.update_attributes(funded_amount: @project.funded_amount + @donation.amount)
+        # @project.save
         format.html { redirect_to [@project, @donation], notice: 'Donation was successfully created.' }
         format.json { render :show, status: :created, location: [@project, @donation] }
       else

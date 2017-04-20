@@ -1,5 +1,5 @@
 # Fund it forward
-
+[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
 ## CFA Fast Track Term 2 Major Project
 
 Fund it forward brings together crowdsourcing donations for social causes and the idea of "paying it forward".

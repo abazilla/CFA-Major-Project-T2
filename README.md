@@ -1,5 +1,5 @@
 # Fund it forward
-[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
+[![Code Climate](https://codeclimate.com/github/nickwu78/CFA-Major-Project-T2/badges/gpa.svg)](https://codeclimate.com/github/nickwu78/CFA-Major-Project-T2)
 ## CFA Fast Track Term 2 Major Project
 
 Fund it forward brings together crowdsourcing donations for social causes and the idea of "paying it forward".
@@ -16,19 +16,19 @@ It allows people who donate to see not only the projects they have funded, but a
 
 Clone the project:
 
-git clone https://github.com/nickwu78/CFA-Fund-It-Forward.git
+`git clone https://github.com/nickwu78/CFA-Fund-It-Forward.git`
 
 change into the project directory, and install the dependencies:
 
-bundle install
+`bundle install`
 
 Run the app:
 
-rails s
+`rails s`
 
 and access it through your browser:
 
-http://localhost:3000
+`http://localhost:3000`
 
 ## Design Process
 

@@ -4,8 +4,26 @@
 .btn-margin-left {
     margin-left: 4px;
 }
+
 .btn-margin-right {
     margin-right: 4px;
+}
+
+.page-bg {
+    background-color: #F6F9FC;
+}
+
+.projects-margin {
+    margin-top: 30px;
+    padding-top: 30px;
+}
+
+.project-card-margin {
+    margin-bottom: 30px;
+}
+
+.box-shadow {
+    box-shadow: 0 3px 6px 1px rgba(0,0,0,.08), 0 7px 14px 1px rgba(50,50,93,.1);
 }
 
 .navbar {
@@ -35,6 +53,7 @@
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     font-weight: normal;
+    border-width: 0px;
 }
 
 .large-shadow-btn:hover {
@@ -45,4 +64,16 @@
     box-shadow: 0 -2px 0 rgba(0,0,0,0.12) inset, 0 0 2px rgba(0,0,0,0.08), 0 12px 16px rgba(0,0,0,0.08), 0 16px 32px rgba(0,0,0,0.08), 0 24px 36px rgba(0,0,0,0.08);
     text-decoration: none !important;
     color: #FFFFFF !important;
+}
+
+.center-block {
+   margin-left:auto;
+   margin-right:auto;
+   display:block;
+}
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 970px !important;
+    }
 }

@@ -40,16 +40,14 @@ class DonationsController < ApplicationController
     charge = Stripe::Charge.create(
       :customer    => customer,
       :amount      => @amount,
-      :description => 'Rails Stripe customer',
+      :description => "Donation for project: #{@project.title}",
       :currency    => 'usd'
     )
 
     respond_to do |format|
       if @donation.save
-        # @donation.update_project_funded_amount
-        # @project.funded_amount += @donation.amount
         @project.update_attributes(funded_amount: @project.funded_amount + @donation.amount)
-        # @project.save
+        @project.update_attributes(funded: true) if @project.funded_amount >= @project.request_amount
         format.html { redirect_to [@project, @donation], notice: 'Donation was successfully created.' }
         format.json { render :show, status: :created, location: [@project, @donation] }
       else

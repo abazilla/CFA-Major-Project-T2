@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @projects = Project.all.order("created_at ASC")
   end
 
   def send_email

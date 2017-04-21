@@ -26,6 +26,11 @@
     box-shadow: 0 3px 6px 1px rgba(0,0,0,.08), 0 7px 14px 1px rgba(50,50,93,.1);
 }
 
+.card-text {
+    max-height: 90px;
+    overflow: hidden;
+}
+
 .navbar {
     background-color: #00C488;
 }

@@ -27,7 +27,7 @@
 
   <p>
     <strong>User:</strong>
-    <%= @project.user %>
+    <%= @project.user.profile.first_name %>
   </p>
 
   <%= image_tag @project.picture.url if @project.picture? %>
@@ -37,6 +37,9 @@
     <%= @project.next_project_funded %>
   </p>
 
+  <p>
+    <%= link_to 'Donate', new_project_donation_path(@project.id), class:'btn btn-primary' %>
+  </p>
   <%= link_to 'Edit', edit_project_path(@project) %> |
   <%= link_to 'Back', projects_path %>
 </div>

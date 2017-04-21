@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   resources :projects do
     resources :donations
   end
+  resources :projects do
+    collection do
+      get :search
+    end
+  end
 end

@@ -16,7 +16,9 @@
 <!-- Projects start here -->
 <div class="container-fluid page-bg">
   <div class="container searchbar-margin">
-   <input class="searchbar-input" type="text" placeholder="Search" id="search-input">
+    <%= form_tag search_projects_path, method: :get do |f| %>
+      <%= text_field_tag :search, nil, placeholder: "Search", class: "searchbar-input col-md-10" %><%= submit_tag "Search", class: "searchbar-btn col-md-2" %>
+    <% end %>
   </div>
   <div class="container">
     <div class="row">

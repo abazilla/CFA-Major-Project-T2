@@ -39,7 +39,7 @@ RSpec.describe DonationsController, type: :controller do
   describe "GET #index" do
     it "assigns all donations as @donations" do
       donation = Donation.create! valid_attributes
-      get :index, params: {}, session: valid_session
+      get :index, params: { :id => @donation}, session: valid_session
       expect(assigns(:donations)).to eq([donation])
     end
   end

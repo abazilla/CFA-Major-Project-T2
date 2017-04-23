@@ -1,36 +1,65 @@
+<body class="page-bg">
 <div class="container">
-  <p id="notice"><%= notice %></p>
-
-  <p>
-    <strong>User:</strong>
-    <%= @profile.user %>
-  </p>
-
-  <p>
-    <strong>First name:</strong>
-    <%= @profile.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= @profile.last_name %>
-  </p>
-
-  <p>
-    <strong>Location:</strong>
-    <%= @profile.location %>
-  </p>
-
-  <p>
-    <strong>Bio:</strong>
-    <%= @profile.bio %>
-  </p>
-
-  <p>
-    <strong>Total donations:</strong>
-    <%= @profile.user.donations.sum(:amount) %>
-  </p>
-
-  <%= link_to 'Edit', edit_profile_path(@profile) %> |
-  <%= link_to 'Back', profiles_path %>
+  <div class="row top-spacing">
+    <div class="col-md-4">
+      <div class="card box-shadow" style="width: 20rem;">
+        <%= image_tag @profile.picture.url, class:'card-img-top' %>
+        <div class="card-block">
+          <h4 class="card-title"><%= @profile.first_name %> <%= @profile.last_name %></h4>
+          <p class="card-text">Email: <%= @profile.user.email %></p>
+          <p class="card-text">Location: <%= @profile.location %></p>
+          <p class="card-text">Total Donations: <%= @profile.user.donations.sum(:amount) %></p>
+          <p> <%= link_to "Edit Profile", edit_profile_path, class:"btn btn-primary" %> </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="col-md-12 profile-spacing">
+        <p id="notice"><%= notice %></p>
+        <div class="card box-shadow">
+          <div class="card-header">
+            <strong>Bio</strong>
+          </div>
+          <div class="card-block">
+            <blockquote class="card-blockquote">
+              <p><%= @profile.bio %></p>
+            </blockquote>
+          </div>
+        </div>
+        </br>
+        <div class="card box-shadow">
+          <div class="card-header">
+            <strong>Donations Made</strong>
+          </div>
+          <div class="card-block">
+            <% @profile.user.donations.each do |donation| %>
+            <blockquote class="card-blockquote">
+              <p><%= donation.project.title %></p>
+              <p><%= donation.amount %></p>
+              <p><%= donation.project.created_at %></p>
+            </blockquote>
+            <% end %>
+          </div>
+        </div>
+        </br>
+        <div class="card box-shadow">
+          <div class="card-header">
+            <strong>My Projects</strong>
+          </div>
+          <div class="card-block">
+            <% @profile.user.projects.each do |project| %>
+            <blockquote class="card-blockquote">
+              <p><%= project.title %></p>
+              <p><%= project.funded_amount %></p>
+              <p><%= project.created_at %></p>
+              <p>Funded? <%= project.funded %></p>
+            </blockquote>
+            <% end %>
+          </div>
+        </div>
+        <%= link_to 'Back', profiles_path %>
+      </div>
+    </div>
+  </div>
 </div>
+</body>

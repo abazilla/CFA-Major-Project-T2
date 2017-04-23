@@ -13,4 +13,9 @@ class Project < ApplicationRecord
       errors.add(:picture, "should be less than 5MB")
     end
   end
+
+  def self.search(params)
+    projects = Project.where("title like ? or pitch like ?", "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
+    projects
+  end
 end

@@ -1,6 +1,8 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Reset some of the stupid bootstrap stylings...
 textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -65,6 +67,31 @@ input[type="color"]:focus,
     z-index: 1;
     position: relative;
     transition: box-shadow .2s ease-in-out;
+}
+
+.searchbar-btn {
+    box-shadow: 0 -2px 0 rgba(0,0,0,0.12) inset, 0 0 2px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.08), 0 12px 16px rgba(0,0,0,0.08);
+    background-color: #00C488;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    padding: 13px 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    font-weight: normal;
+    border-width: 0px;
+    margin-top: 1px;
+}
+
+.searchbar-btn:hover {
+    background: #19c993;
+    -webkit-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    transform: translateY(-1px);
+    box-shadow: 0 -2px 0 rgba(0,0,0,0.12) inset, 0 0 2px rgba(0,0,0,0.08), 0 12px 16px rgba(0,0,0,0.08), 0 16px 32px rgba(0,0,0,0.08), 0 24px 36px rgba(0,0,0,0.08);
+    text-decoration: none !important;
+    color: #FFFFFF !important;
 }
 
 .box-shadow {

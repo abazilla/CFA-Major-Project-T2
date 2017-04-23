@@ -3,7 +3,7 @@
   <div class="row top-spacing">
     <div class="col-md-4">
       <div class="card box-shadow" style="width: 20rem;">
-        <img class="card-img-top" src="http://placehold.it/350x150" alt="Card image cap">
+        <%= image_tag @profile.picture.url, class:'card-img-top' %>
         <div class="card-block">
           <h4 class="card-title"><%= @profile.first_name %> <%= @profile.last_name %></h4>
           <p class="card-text">Email: <%= @profile.user.email %></p>
@@ -18,7 +18,7 @@
         <p id="notice"><%= notice %></p>
         <div class="card box-shadow">
           <div class="card-header">
-            Bio
+            <strong>Bio</strong>
           </div>
           <div class="card-block">
             <blockquote class="card-blockquote">
@@ -29,7 +29,7 @@
         </br>
         <div class="card box-shadow">
           <div class="card-header">
-            Donations Made
+            <strong>Donations Made</strong>
           </div>
           <div class="card-block">
             <% @profile.user.donations.each do |donation| %>
@@ -44,7 +44,7 @@
         </br>
         <div class="card box-shadow">
           <div class="card-header">
-            My Projects
+            <strong>My Projects</strong>
           </div>
           <div class="card-block">
             <% @profile.user.projects.each do |project| %>

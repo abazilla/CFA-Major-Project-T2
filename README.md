@@ -1,5 +1,6 @@
 # Fund it forward
 [![Code Climate](https://codeclimate.com/github/nickwu78/CFA-Major-Project-T2/badges/gpa.svg)](https://codeclimate.com/github/nickwu78/CFA-Major-Project-T2)
+[![Build Status](https://travis-ci.org/nickwu78/CFA-Major-Project-T2.svg?branch=master)](https://travis-ci.org/nickwu78/CFA-Major-Project-T2)
 ## CFA Fast Track Term 2 Major Project
 
 Fund it forward brings together crowdsourcing donations for social causes and the idea of "paying it forward".

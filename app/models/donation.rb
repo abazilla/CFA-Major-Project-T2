@@ -1,6 +1,7 @@
 class Donation < ApplicationRecord
   belongs_to :user
   belongs_to :project
+  has_one :profile, through: :user
 
   # def self.update_project_funded_amount(...)
   #   @project.funded_amount += @donation.amount

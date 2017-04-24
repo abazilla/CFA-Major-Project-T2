@@ -47,6 +47,10 @@ input[type="color"]:focus,
     margin-bottom: 30px;
 }
 
+.page-margin {
+    margin-top: 30px;
+}
+
 .searchbar-margin {
     margin-top: 30px;
     padding-top: 30px;
@@ -200,4 +204,8 @@ input[type="color"]:focus,
     background-image: -webkit-linear-gradient(top, rgba(0,196,137,1) 0%, rgba(0,171,103,1) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.main-image {
+    width: 100%;
 }

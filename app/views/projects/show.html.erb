@@ -1,7 +1,9 @@
 <div class="container">
+
+  <%= image_tag @project.picture.url if @project.picture? %>
+
   <p>
-    <strong>Title:</strong>
-    <%= @project.title %>
+    <h1><%= @project.title %></h1>
   </p>
 
   <p>

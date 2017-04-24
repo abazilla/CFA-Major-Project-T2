@@ -13,7 +13,7 @@ RSpec.describe "projects/new", type: :view do
     ))
   end
 
-  it "renders new project form" do
+  xit "renders new project form" do
     render
 
     assert_select "form[action=?][method=?]", projects_path, "post" do

@@ -15,6 +15,7 @@
         <% if user_signed_in? %>
           <%= link_to "Post A Project", new_project_path, class: 'btn btn-primary btn-margin-right'%>
           <%= link_to "Profile", profile_path(current_user.id), class: 'btn btn-primary btn-margin-right' %>
+          <li class="user-name"> <%= current_user.profile.first_name %> <%= current_user.profile.last_name %> </li>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-danger my-2 my-sm-0' %>
         <% else %>
           <%= link_to "Sign in", new_user_session_path, class: 'btn btn-success my-2 my-sm-0 btn-margin-right' %>

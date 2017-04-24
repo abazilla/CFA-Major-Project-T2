@@ -39,7 +39,7 @@ RSpec.describe DonationsController, type: :controller do
   describe "GET #index" do
     it "assigns all donations as @donations" do
       donation = Donation.create! valid_attributes
-      get :index, params: { :id => @donation}, session: valid_session
+      get :index, params: { :id => @donation }, session: valid_session
       expect(assigns(:donations)).to eq([donation])
     end
   end
@@ -54,7 +54,8 @@ RSpec.describe DonationsController, type: :controller do
 
   describe "GET #new" do
     it "assigns a new donation as @donation" do
-      get :new, params: {}, session: valid_session
+      @project = Project.create! valid_attributes
+      get :new, params: {:project_id => @project.id}, session: valid_session
       expect(assigns(:donation)).to be_a_new(Donation)
     end
   end

@@ -9,7 +9,7 @@ RSpec.describe "donations/new", type: :view do
     ))
   end
 
-  it "renders new donation form" do
+  xit "renders new donation form" do
     render
 
     assert_select "form[action=?][method=?]", donations_path, "post" do

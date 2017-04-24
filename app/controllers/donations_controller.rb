@@ -47,7 +47,10 @@ class DonationsController < ApplicationController
     respond_to do |format|
       if @donation.save
         @project.update_attributes(funded_amount: @project.funded_amount + @donation.amount)
-        @project.update_attributes(funded: true) if @project.funded_amount >= @project.request_amount
+        if @project.funded_amount >= @project.request_amount
+          @project.update_attributes(funded: true)
+          PaidForward.create(:project_id => @project.id, :amount => @project.request_amount * 0.1)
+        end
         format.html { redirect_to [@project, @donation], notice: 'Donation was successfully created.' }
         format.json { render :show, status: :created, location: [@project, @donation] }
       else

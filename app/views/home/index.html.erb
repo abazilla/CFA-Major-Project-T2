@@ -30,7 +30,7 @@
             <h3 class="card-title"><%= project.title %></h3>
             <h6 class="card-subtitle mb-2 text-muted"><%= project.user.email %></h6>
             <h6 class="card-subtitle mb-2 text-muted">Created: <%= time_ago_in_words(project.created_at) %> ago</h6>
-            <p class="card-text"><%= project.pitch %></p>
+            <p class="card-text"><%= project.summary %></p>
             <%= link_to 'Show', project, class:'btn btn-primary large-shadow-btn' %>
           </div>
           <div class="card-footer">

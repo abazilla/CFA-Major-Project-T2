@@ -12,7 +12,7 @@ RSpec.describe "profiles/edit", type: :view do
     ))
   end
 
-  it "renders the edit profile form" do
+  xit "renders the edit profile form" do
     render
 
     assert_select "form[action=?][method=?]", profile_path(@profile), "post" do

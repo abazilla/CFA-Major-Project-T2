@@ -1,4 +1,4 @@
-class PaidForwardController < ApplicationController
+class PaidForwardsController < ApplicationController
   def index
   end
 

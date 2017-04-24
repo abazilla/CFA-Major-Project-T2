@@ -36,7 +36,7 @@
           <div class="card-footer">
             Requested: <%= number_to_currency(project.request_amount) %>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: <%= percent_funded(project.funded_amount, project.request_amount) %>" aria-valuenow="<%= percent_funded(project.funded_amount, project.request_amount).to_i %>" aria-valuemin="0" aria-valuemax="100"><%= percent_funded(project.funded_amount, project.request_amount).to_i %>% FUNDED</div>
+              <div class="progress-bar" role="progressbar" style="width: <%= percent_funded(project.funded_amount, project.request_amount) %>" aria-valuenow="<%= percent_funded(project.funded_amount, project.request_amount).to_i %>" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
         </div>

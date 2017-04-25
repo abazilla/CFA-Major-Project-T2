@@ -64,6 +64,9 @@
         </div>
         <%= link_to 'Back', profiles_path %>
       </div>
+      <% if current_user.has_role? :admin %>
+        <%= render 'partials/admindashboard' %>
+      <% end %>
     </div>
   </div>
 </div>

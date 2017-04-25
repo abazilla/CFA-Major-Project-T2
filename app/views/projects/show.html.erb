@@ -10,6 +10,7 @@
           <h2><%= percent_funded(@project.funded_amount, @project.request_amount).to_i %>% Funded</h2>
           <h2><%= @project.user.profile.first_name %> <%= @project.user.profile.last_name %></h2>
           <h4><%= @project.user.profile.location %></h4>
+          <br>
           <%= link_to 'Donate', new_project_donation_path(@project.id), class:'large-shadow-btn' %>
         </div>
       </div>
@@ -20,9 +21,10 @@
       </div>
       <div class="row">
         <div class="col-8">
-          <h4>By <%= @project.user.profile.first_name %> <%= @project.user.profile.last_name %></h4>
+          <h5>By <%= @project.user.profile.first_name %> <%= @project.user.profile.last_name %> at <%= @project.created_at.strftime("%A %b %d %Y %I:%M%p")%></h5>
         </div>
       </div>
+      <br>
       <div class="row">
         <div class="col-8">
           <%= raw @project.pitch %>
@@ -34,8 +36,12 @@
           <% end %>
         </div>
       </div>
+      </br>
       <div class="row">
-      
+        <div class="col-8">
+        <h4>Next project funded:</h4>
+          <%= @project.next_project_funded %>
+        </div>
       </div>
     </div>
 
@@ -50,12 +56,11 @@
     </p>
 
     <p>
-      <strong>Next project funded:</strong>
-      <%= @project.next_project_funded %>
     </p>
-
-    <% if current_user == @project.user_id %>
-      <%= link_to 'Edit', edit_project_path(@project) %>
+    <% if user_signed_in? %>
+      <% if current_user.id == @project.user_id %>
+        <%= link_to 'Edit', edit_project_path(@project) %>
+      <% end %>
     <% end %>
     <%= link_to 'Back', projects_path %>
   </div>

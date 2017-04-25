@@ -55,8 +55,8 @@
               <p><%= project.funded_amount %></p>
               <p><%= project.created_at %></p>
               <p>Funded? <%= project.funded %></p>
-              <% if project.funded %>
-              <%= link_to "Pay It Forward", paid_forward_path(project.id), class:'btn large-shadow-btn' %>
+              <% if project.funded && project.user_id == current_user.id %>
+                <%= link_to "Pay It Forward", paid_forward_path(project.id), class:'btn large-shadow-btn' %>
               <% end %>
             </blockquote>
             <% end %>

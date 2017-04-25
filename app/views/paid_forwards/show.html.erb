@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>Congratulations! Your project has been funded</h1>
+  <p class="lead">Pay forward the generosity and support of your backers by choosing a project of your choice to donate 10% of your funded amount</p>
+  <p>Amount: <%= @paid_forward.amount %></p>
+
+    <p id="notice"><%= notice %></p>
+
+  <h1>Projects</h1>
+
+    <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Summary</th>
+        <th>Request amount</th>
+        <th>Funded amount</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= project.title %></td>
+          <td><%= project.summary %></td>
+          <td><%= project.request_amount %></td>
+          <td><%= project.funded_amount %></td>
+          <td><%= button_to "Fund it Foward", :method => "fund_next_project" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
